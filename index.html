@@ -1,0 +1,569 @@
+<!DOCTYPE html>
+<html lang="en" data-lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Anna Jungmannová — Digital Forensics &amp; Cyber Threat Intelligence</title>
+<meta name="description" content="Research profile of Anna Jungmannová — Cyber Threat Intelligence, Digital Forensics, Cybercrime-as-a-Service, Darknet/OSINT analysis.">
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;0,6..72,600;1,6..72,400&family=Inter:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&family=Noto+Sans+KR:wght@400;500;600&family=Noto+Serif+KR:wght@500;600&display=swap');
+
+  :root{
+    --paper: #ffffff;
+    --paper-raised: #f7f7f7;
+    --ink: #111111;
+    --ink-soft: #4a4a4a;
+    --ink-faint: #9a9a9a;
+    --rule: #dcdcdc;
+    --line-strong: #111111;
+    --serif: 'Newsreader', Georgia, 'Times New Roman', serif;
+    --sans: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    --mono: 'IBM Plex Mono', ui-monospace, SFMono-Regular, Menlo, monospace;
+    --serif-kr: 'Noto Serif KR', var(--serif);
+    --sans-kr: 'Noto Sans KR', var(--sans);
+  }
+
+  *{ box-sizing:border-box; }
+  html{ scroll-behavior:smooth; }
+
+  body{
+    margin:0;
+    background:var(--paper);
+    color:var(--ink);
+    font-family:var(--sans);
+    font-size:16px;
+    line-height:1.65;
+    -webkit-font-smoothing:antialiased;
+  }
+
+  html[data-lang="ko"] body{ font-family:var(--sans-kr); }
+  html[data-lang="ko"] h1, html[data-lang="ko"] h2, html[data-lang="ko"] h3,
+  html[data-lang="ko"] .role, html[data-lang="ko"] .case-note h3{ font-family:var(--serif-kr); }
+
+  @media (prefers-reduced-motion: reduce){
+    html{ scroll-behavior:auto; }
+    *{ animation:none !important; transition:none !important; }
+  }
+
+  /* language toggling: show/hide duplicated nodes */
+  html[data-lang="en"] .ko{ display:none; }
+  html[data-lang="ko"] .en{ display:none; }
+
+  .wrap{
+    max-width:680px;
+    margin:0 auto;
+    padding:0 28px;
+  }
+
+  /* ---------- Lang switch ---------- */
+  .langbar{
+    position:fixed;
+    top:22px;
+    right:24px;
+    z-index:20;
+    display:flex;
+    align-items:center;
+    gap:2px;
+    font-family:var(--mono);
+    font-size:12px;
+    background:var(--paper);
+    border:1px solid var(--line-strong);
+    border-radius:20px;
+    padding:3px;
+  }
+  .langbar button{
+    appearance:none;
+    border:none;
+    background:transparent;
+    color:var(--ink-faint);
+    font-family:var(--mono);
+    font-size:12px;
+    letter-spacing:0.04em;
+    padding:6px 13px;
+    border-radius:16px;
+    cursor:pointer;
+    transition:background .15s, color .15s;
+  }
+  .langbar button.active{
+    background:var(--ink);
+    color:var(--paper);
+  }
+  .langbar button:not(.active):hover{ color:var(--ink); }
+  .langbar button:focus-visible{ outline:2px solid var(--ink); outline-offset:2px; }
+
+  /* ---------- Header ---------- */
+  header{
+    padding:88px 0 56px;
+    position:relative;
+  }
+
+  .seal{
+    position:absolute;
+    top:86px;
+    right:28px;
+    width:64px;
+    height:64px;
+    border:2px solid var(--ink);
+    border-radius:6px;
+    color:var(--ink);
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    font-family:var(--serif);
+    font-weight:600;
+    font-size:19px;
+    letter-spacing:0.5px;
+    transform:rotate(-6deg);
+  }
+  .seal::after{
+    content:"";
+    position:absolute;
+    inset:5px;
+    border:1px solid var(--ink);
+    border-radius:3px;
+    opacity:0.55;
+  }
+
+  .kicker{
+    font-family:var(--mono);
+    font-size:12.5px;
+    letter-spacing:0.14em;
+    text-transform:uppercase;
+    color:var(--ink);
+    margin:0 0 18px;
+  }
+  html[data-lang="ko"] .kicker{ letter-spacing:0.02em; text-transform:none; }
+
+  h1{
+    font-family:var(--serif);
+    font-weight:500;
+    font-size:44px;
+    line-height:1.12;
+    margin:0 0 10px;
+    letter-spacing:-0.01em;
+    max-width:520px;
+  }
+
+  .role{
+    font-family:var(--serif);
+    font-style:italic;
+    font-size:19px;
+    color:var(--ink-soft);
+    margin:0 0 28px;
+  }
+  html[data-lang="ko"] .role{ font-style:normal; }
+
+  .links{
+    display:flex;
+    flex-wrap:wrap;
+    gap:6px 18px;
+    font-family:var(--mono);
+    font-size:13px;
+  }
+  .links a{
+    color:var(--ink);
+    text-decoration:none;
+    border-bottom:1px solid var(--rule);
+    padding-bottom:1px;
+    transition:border-color .15s, opacity .15s;
+  }
+  .links a:hover, .links a:focus-visible{
+    border-color:var(--ink);
+    opacity:0.7;
+  }
+
+  /* ---------- Section scaffolding ---------- */
+  section{
+    padding:44px 0;
+    border-top:1px solid var(--rule);
+  }
+
+  .eyebrow{
+    font-family:var(--mono);
+    font-size:11.5px;
+    letter-spacing:0.14em;
+    text-transform:uppercase;
+    color:var(--ink-faint);
+    margin:0 0 20px;
+  }
+  html[data-lang="ko"] .eyebrow{ letter-spacing:0.02em; text-transform:none; }
+
+  h2{
+    font-family:var(--serif);
+    font-weight:500;
+    font-size:24px;
+    margin:0 0 18px;
+  }
+
+  p{ margin:0 0 16px; color:var(--ink-soft); }
+  p:last-child{ margin-bottom:0; }
+
+  /* ---------- Focus areas ---------- */
+  .foci{
+    display:flex;
+    flex-wrap:wrap;
+    gap:10px;
+  }
+  .foci span{
+    font-family:var(--mono);
+    font-size:13px;
+    color:var(--ink);
+    background:var(--paper-raised);
+    border:1px solid var(--ink);
+    border-radius:3px;
+    padding:6px 12px;
+  }
+  html[data-lang="ko"] .foci span{ font-family:var(--sans-kr); font-size:13.5px; }
+
+  /* ---------- Case-note (thesis) block ---------- */
+  .case-note{
+    border-left:2px solid var(--ink);
+    background:var(--paper-raised);
+    padding:18px 20px 18px 22px;
+    border-radius:0 4px 4px 0;
+  }
+  .case-note .label{
+    font-family:var(--mono);
+    font-size:11.5px;
+    letter-spacing:0.1em;
+    text-transform:uppercase;
+    color:var(--ink-soft);
+    margin-bottom:10px;
+  }
+  html[data-lang="ko"] .case-note .label{ letter-spacing:0.02em; text-transform:none; }
+  .case-note h3{
+    font-family:var(--serif);
+    font-weight:500;
+    font-style:italic;
+    font-size:19px;
+    margin:0 0 10px;
+    color:var(--ink);
+  }
+  html[data-lang="ko"] .case-note h3{ font-style:normal; }
+  .case-note p{ margin:0; font-size:15px; }
+
+  /* ---------- Log-style records (education/grades) ---------- */
+  .record{
+    padding:18px 0;
+    border-bottom:1px solid var(--rule);
+  }
+  .record:last-child{ border-bottom:none; }
+
+  .record-head{
+    display:flex;
+    justify-content:space-between;
+    align-items:baseline;
+    gap:16px;
+    flex-wrap:wrap;
+    margin-bottom:6px;
+  }
+  .record-head .name{
+    font-family:var(--serif);
+    font-weight:500;
+    font-size:17.5px;
+  }
+  html[data-lang="ko"] .record-head .name{ font-family:var(--serif-kr); }
+  .record-head .where{
+    font-family:var(--mono);
+    font-size:12.5px;
+    color:var(--ink-faint);
+    white-space:nowrap;
+  }
+  html[data-lang="ko"] .record-head .where{ font-family:var(--sans-kr); }
+  .record .meta{
+    font-family:var(--mono);
+    font-size:13px;
+    color:var(--ink-soft);
+    margin-bottom:10px;
+  }
+  html[data-lang="ko"] .record .meta{ font-family:var(--sans-kr); }
+
+  .log{
+    font-family:var(--mono);
+    font-size:13px;
+    color:var(--ink-soft);
+    background:var(--paper);
+    border:1px solid var(--rule);
+    border-radius:4px;
+    padding:12px 14px;
+    overflow-x:auto;
+  }
+  .log-line{
+    display:flex;
+    justify-content:space-between;
+    gap:14px;
+    padding:3px 0;
+    white-space:nowrap;
+  }
+  .log-line + .log-line{ border-top:1px dashed var(--rule); }
+  .log-line .course{ color:var(--ink); overflow:hidden; text-overflow:ellipsis; }
+  .log-line .grade{ color:var(--ink); font-weight:600; flex-shrink:0; }
+
+  .rank-line{
+    font-family:var(--mono);
+    font-size:13px;
+    color:var(--ink);
+    margin-top:10px;
+  }
+  html[data-lang="ko"] .rank-line{ font-family:var(--sans-kr); }
+  .rank-line b{ color:var(--ink); }
+
+  /* ---------- Experience ---------- */
+  .xp + .xp{ margin-top:26px; }
+  .xp-head{
+    display:flex;
+    justify-content:space-between;
+    align-items:baseline;
+    gap:16px;
+    flex-wrap:wrap;
+    margin-bottom:8px;
+  }
+  .xp-head .role-name{ font-family:var(--serif); font-weight:500; font-size:17.5px; }
+  html[data-lang="ko"] .xp-head .role-name{ font-family:var(--serif-kr); }
+  .xp-head .dates{ font-family:var(--mono); font-size:12.5px; color:var(--ink-faint); white-space:nowrap; }
+  ul.xp-list{ margin:0; padding-left:18px; }
+  ul.xp-list li{ margin-bottom:6px; color:var(--ink-soft); font-size:15px; }
+
+  /* ---------- Skills ---------- */
+  .skills-grid{
+    display:grid;
+    grid-template-columns:130px 1fr;
+    gap:10px 20px;
+    font-size:14.5px;
+  }
+  .skills-grid dt{
+    font-family:var(--mono);
+    font-size:12px;
+    letter-spacing:0.06em;
+    text-transform:uppercase;
+    color:var(--ink-faint);
+    padding-top:2px;
+  }
+  html[data-lang="ko"] .skills-grid dt{ font-family:var(--sans-kr); letter-spacing:0.02em; text-transform:none; }
+  .skills-grid dd{ margin:0; color:var(--ink-soft); }
+
+  /* ---------- Footer ---------- */
+  footer{
+    padding:44px 0 90px;
+    border-top:1px solid var(--rule);
+    font-family:var(--mono);
+    font-size:12.5px;
+    color:var(--ink-faint);
+    display:flex;
+    justify-content:space-between;
+    flex-wrap:wrap;
+    gap:10px;
+  }
+  html[data-lang="ko"] footer{ font-family:var(--sans-kr); }
+  footer a{ color:var(--ink-faint); }
+
+  @media (max-width:560px){
+    header{ padding:64px 0 40px; }
+    h1{ font-size:34px; }
+    .seal{ top:64px; right:24px; width:52px; height:52px; font-size:16px; }
+    .skills-grid{ grid-template-columns:1fr; }
+    .skills-grid dt{ padding-top:8px; }
+    .langbar{ top:16px; right:16px; }
+  }
+</style>
+</head>
+<body>
+
+<div class="langbar" role="group" aria-label="Language / 언어 선택">
+  <button type="button" data-set-lang="en" class="active">EN</button>
+  <button type="button" data-set-lang="ko">KO</button>
+</div>
+
+<div class="wrap">
+
+  <header>
+    <div class="seal" aria-hidden="true">AJ</div>
+    <p class="kicker">
+      <span class="en">Research Profile — Digital Forensics &amp; CTI</span>
+      <span class="ko">연구 프로필 — 디지털 포렌식 &amp; 사이버 위협 인텔리전스</span>
+    </p>
+    <h1>Anna Jungmannová</h1>
+    <p class="role">
+      <span class="en">Cybersecurity analyst turned researcher of the criminal economy behind cyberattacks</span>
+      <span class="ko">사이버 공격 이면의 범죄 경제를 연구하는, 사이버보안 분석가 출신 연구자</span>
+    </p>
+    <div class="links">
+      <a href="mailto:ajungmannova@gmail.com">ajungmannova@gmail.com</a>
+      <a href="https://linkedin.com/in/REPLACE-ME" target="_blank" rel="noopener">LinkedIn</a>
+      <a href="https://github.com/REPLACE-ME" target="_blank" rel="noopener">GitHub</a>
+      <a href="./Anna_Jungmannova_Academic_CV.pdf" target="_blank" rel="noopener">
+        <span class="en">Download CV (PDF)</span>
+        <span class="ko">이력서 다운로드 (PDF)</span>
+      </a>
+    </div>
+  </header>
+
+  <section id="about">
+    <p class="eyebrow"><span class="en">Overview</span><span class="ko">개요</span></p>
+    <p class="en">I study how cybercrime is organized as a market — how access, tools, and stolen data are packaged and sold between criminal actors, and what that structure reveals to investigators. My background sits between six years of applied security operations and a master's research focus on Cybercrime-as-a-Service, using OSINT and network analysis to map how threat actors organize and transact on darknet and adjacent forums.</p>
+    <p class="ko">저는 사이버범죄가 하나의 시장으로서 어떻게 조직되는지를 연구합니다 — 접근 권한, 도구, 탈취된 데이터가 범죄자들 사이에서 어떻게 패키징되고 거래되는지, 그리고 그 구조가 수사관들에게 무엇을 알려주는지를 살펴봅니다. 저의 배경은 6년간의 실무 보안 운영 경험과, OSINT 및 네트워크 분석을 활용해 다크넷 및 인접 포럼에서 위협 행위자들이 어떻게 조직되고 거래하는지를 매핑하는 석사 연구(서비스형 사이버범죄, CaaS)를 결합합니다.</p>
+    <p class="en">I'm seeking a doctoral position in Korea to extend this work into digital forensics and cyber threat intelligence research — combining the investigative rigor of forensic method with the pattern-finding of network analysis.</p>
+    <p class="ko">저는 이 연구를 디지털 포렌식 및 사이버 위협 인텔리전스 연구로 확장하기 위해 한국에서의 박사 과정 진학을 준비하고 있습니다 — 포렌식 방법론의 수사적 엄밀함과 네트워크 분석의 패턴 탐지 능력을 결합하고자 합니다.</p>
+  </section>
+
+  <section id="focus">
+    <p class="eyebrow"><span class="en">Focus Areas</span><span class="ko">연구 분야</span></p>
+    <div class="foci">
+      <span><span class="en">Cyber Threat Intelligence</span><span class="ko">사이버 위협 인텔리전스</span></span>
+      <span><span class="en">Digital Forensics</span><span class="ko">디지털 포렌식</span></span>
+      <span><span class="en">Cybercrime-as-a-Service</span><span class="ko">서비스형 사이버범죄(CaaS)</span></span>
+      <span><span class="en">Darknet &amp; OSINT Analysis</span><span class="ko">다크넷 &amp; OSINT 분석</span></span>
+      <span><span class="en">Network Analysis of Threat Actors</span><span class="ko">위협 행위자 네트워크 분석</span></span>
+    </div>
+  </section>
+
+  <section id="thesis">
+    <p class="eyebrow"><span class="en">Current Research</span><span class="ko">현재 연구</span></p>
+    <div class="case-note">
+      <p class="label"><span class="en">M.S. Thesis — In Progress</span><span class="ko">석사 학위논문 — 진행 중</span></p>
+      <h3><span class="en">Analysis of Cybercrime-as-a-Service Models</span><span class="ko">서비스형 사이버범죄(CaaS) 모델 분석</span></h3>
+      <p class="en">Applies OSINT collection and network analysis methods to map how threat actors organize, advertise, and transact within Cybercrime-as-a-Service ecosystems — treating the darknet market not just as a data source, but as a structured economy with its own logic of trust, reputation, and specialization.</p>
+      <p class="ko">OSINT 수집 및 네트워크 분석 기법을 적용하여, 위협 행위자들이 CaaS 생태계 내에서 어떻게 조직되고 광고되며 거래되는지를 매핑합니다 — 다크넷 마켓을 단순한 데이터 원천이 아니라, 신뢰·평판·전문화라는 고유한 논리를 지닌 구조화된 경제로 다룹니다.</p>
+    </div>
+  </section>
+
+  <section id="education">
+    <p class="eyebrow"><span class="en">Education</span><span class="ko">학력</span></p>
+
+    <div class="record">
+      <div class="record-head">
+        <span class="name"><span class="en">Prague University of Economics and Business (VŠE)</span><span class="ko">프라하 경제경영대학교 (VŠE)</span></span>
+        <span class="where"><span class="en">Prague, CZ</span><span class="ko">체코 프라하</span></span>
+      </div>
+      <p class="meta"><span class="en">M.S., Information Management — expected Feb 2027</span><span class="ko">정보경영학 석사 — 2027년 2월 졸업 예정</span></p>
+      <div class="log">
+        <div class="log-line"><span class="course">digital_forensic_analysis</span><span class="grade">1 · 98%</span></div>
+        <div class="log-line"><span class="course">is_security_management</span><span class="grade">1 · 99%</span></div>
+        <div class="log-line"><span class="course">penetration_testing</span><span class="grade">1 · 91.5%</span></div>
+        <div class="log-line"><span class="course">intro_cybersecurity</span><span class="grade">1 · 91.5%</span></div>
+        <div class="log-line"><span class="course">social_informatics</span><span class="grade">1 · 91%</span></div>
+      </div>
+      <p class="rank-line">
+        <span class="en">rank: <b>6 / 47</b> · top <b>12.77%</b> of cohort (university-computed) · program average 1.3/4.0</span>
+        <span class="ko">순위: <b>47명 중 6위</b> · 동일 전공·학년 기준 상위 <b>12.77%</b> (대학 공식 산정) · 전공 평균 1.3/4.0</span>
+      </p>
+    </div>
+
+    <div class="record">
+      <div class="record-head">
+        <span class="name"><span class="en">Konkuk University — Exchange Semester</span><span class="ko">건국대학교 — 교환학기</span></span>
+        <span class="where"><span class="en">Seoul, KR</span><span class="ko">대한민국 서울</span></span>
+      </div>
+      <p class="meta"><span class="en">GPA 4.13/4.5 · 96.3% average</span><span class="ko">평점 4.13/4.5 · 평균 96.3%</span></p>
+      <div class="log">
+        <div class="log-line"><span class="course">media_research_methods</span><span class="grade">A+</span></div>
+        <div class="log-line"><span class="course">developing_countries_seminar</span><span class="grade">A+</span></div>
+        <div class="log-line"><span class="course">understanding_korean_culture</span><span class="grade">A+</span></div>
+        <div class="log-line"><span class="course">korean_intermediate</span><span class="grade">B+</span></div>
+        <div class="log-line"><span class="course">korean_film_and_culture</span><span class="grade">B+</span></div>
+      </div>
+    </div>
+
+    <div class="record">
+      <div class="record-head">
+        <span class="name"><span class="en">Korea University — Intl. Summer Campus</span><span class="ko">고려대학교 — 국제하계대학</span></span>
+        <span class="where"><span class="en">Seoul, KR</span><span class="ko">대한민국 서울</span></span>
+      </div>
+      <p class="meta"><span class="en">Summer 2026 · GPA 4.25/4.5</span><span class="ko">2026년 여름학기 · 평점 4.25/4.5</span></p>
+      <div class="log">
+        <div class="log-line"><span class="course">intermediate_korean</span><span class="grade">A+</span></div>
+        <div class="log-line"><span class="course">intro_to_hanja</span><span class="grade">A</span></div>
+      </div>
+    </div>
+
+    <div class="record">
+      <div class="record-head">
+        <span class="name"><span class="en">Masaryk University Brno</span><span class="ko">마사리크 대학교 브르노</span></span>
+        <span class="where"><span class="en">Brno, CZ</span><span class="ko">체코 브르노</span></span>
+      </div>
+      <p class="meta"><span class="en">B.S., Ecological &amp; Evolutionary Biology · 2017–2020</span><span class="ko">생태 및 진화생물학 학사 · 2017–2020</span></p>
+    </div>
+  </section>
+
+  <section id="experience">
+    <p class="eyebrow"><span class="en">Professional Experience</span><span class="ko">경력</span></p>
+
+    <div class="xp">
+      <div class="xp-head">
+        <span class="role-name"><span class="en">Security Delivery Senior Analyst — Accenture</span><span class="ko">보안 딜리버리 시니어 분석가 — Accenture</span></span>
+        <span class="dates"><span class="en">2020 — present</span><span class="ko">2020년 — 현재</span></span>
+      </div>
+      <ul class="xp-list">
+        <li><span class="en">Lead security delivery across infrastructure upgrade projects, translating technical vulnerability and risk findings into actionable intelligence for stakeholders</span><span class="ko">인프라 업그레이드 프로젝트 전반의 보안 딜리버리를 주도하며, 기술적 취약점 및 리스크 분석 결과를 이해관계자를 위한 실행 가능한 인텔리전스로 전환</span></li>
+        <li><span class="en">Manage the full project lifecycle for security infrastructure initiatives, from requirements analysis through deployment</span><span class="ko">요구사항 분석부터 배포까지 보안 인프라 프로젝트의 전체 생애주기 관리</span></li>
+        <li><span class="en">Bridge technical security engineering and risk governance through structured reporting used in decision-making</span><span class="ko">체계적인 보고 체계를 통해 기술 보안 엔지니어링과 리스크 거버넌스를 연결, 의사결정에 활용</span></li>
+      </ul>
+    </div>
+
+    <div class="xp">
+      <div class="xp-head">
+        <span class="role-name"><span class="en">Quality Assurance Engineer — Figure</span><span class="ko">품질보증(QA) 엔지니어 — Figure</span></span>
+        <span class="dates"><span class="en">2018 — 2020</span><span class="ko">2018년 — 2020년</span></span>
+      </div>
+      <ul class="xp-list">
+        <li><span class="en">Managed infrastructure reliability and release quality using AWS, Jira, and CI/CD pipelines</span><span class="ko">AWS, Jira, CI/CD 파이프라인을 활용한 인프라 안정성 및 릴리스 품질 관리</span></li>
+        <li><span class="en">Standardized testing protocols and mentored team members in high-stakes environments</span><span class="ko">테스트 프로토콜 표준화 및 고위험 환경에서의 팀원 멘토링</span></li>
+      </ul>
+    </div>
+  </section>
+
+  <section id="skills">
+    <p class="eyebrow"><span class="en">Skills</span><span class="ko">기술</span></p>
+    <dl class="skills-grid">
+      <dt><span class="en">Forensics &amp; CTI</span><span class="ko">포렌식 &amp; CTI</span></dt>
+      <dd><span class="en">Digital forensics, incident response, OSINT, darknet analysis, vulnerability assessment</span><span class="ko">디지털 포렌식, 침해사고 대응, OSINT, 다크넷 분석, 취약점 평가</span></dd>
+      <dt><span class="en">Programming</span><span class="ko">프로그래밍</span></dt>
+      <dd>Python (automation, data analysis), C#</dd>
+      <dt><span class="en">Infrastructure</span><span class="ko">인프라</span></dt>
+      <dd>Linux, AWS, Cloud, Git</dd>
+      <dt><span class="en">Languages</span><span class="ko">언어</span></dt>
+      <dd><span class="en">English (fluent), Czech (native), Korean (TOPIK 2, in progress)</span><span class="ko">영어(유창), 체코어(모국어), 한국어(TOPIK 2급, 학습 중)</span></dd>
+    </dl>
+  </section>
+
+  <footer>
+    <span class="en">Prague, Czech Republic</span><span class="ko">체코 프라하</span>
+    <span class="en">Last updated August 2026</span><span class="ko">최종 업데이트: 2026년 8월</span>
+  </footer>
+
+</div>
+
+<script>
+  (function(){
+    var STORAGE_KEY = 'aj-site-lang';
+    var html = document.documentElement;
+    var buttons = document.querySelectorAll('[data-set-lang]');
+
+    function applyLang(lang){
+      html.setAttribute('data-lang', lang);
+      html.setAttribute('lang', lang === 'ko' ? 'ko' : 'en');
+      buttons.forEach(function(btn){
+        btn.classList.toggle('active', btn.getAttribute('data-set-lang') === lang);
+      });
+      try { localStorage.setItem(STORAGE_KEY, lang); } catch(e) {}
+    }
+
+    buttons.forEach(function(btn){
+      btn.addEventListener('click', function(){
+        applyLang(btn.getAttribute('data-set-lang'));
+      });
+    });
+
+    var saved = null;
+    try { saved = localStorage.getItem(STORAGE_KEY); } catch(e) {}
+    if (saved === 'en' || saved === 'ko') {
+      applyLang(saved);
+    } else {
+      var browserLang = (navigator.language || '').toLowerCase();
+      applyLang(browserLang.indexOf('ko') === 0 ? 'ko' : 'en');
+    }
+  })();
+</script>
+
+</body>
+</html>

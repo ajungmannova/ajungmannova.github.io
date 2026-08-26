@@ -316,6 +316,19 @@
   ul.xp-list{ margin:0; padding-left:18px; }
   ul.xp-list li{ margin-bottom:6px; color:var(--ink-soft); font-size:15px; }
 
+  .subhead{
+    font-family:var(--mono);
+    font-size:12px;
+    letter-spacing:0.06em;
+    text-transform:uppercase;
+    color:var(--ink);
+    margin:18px 0 8px;
+    padding-top:14px;
+    border-top:1px dashed var(--rule);
+  }
+  .subhead:first-of-type{ border-top:none; padding-top:0; margin-top:0; }
+  html[data-lang="ko"] .subhead{ font-family:var(--sans-kr); letter-spacing:0.02em; text-transform:none; }
+
   /* ---------- Skills ---------- */
   .skills-grid{
     display:grid;

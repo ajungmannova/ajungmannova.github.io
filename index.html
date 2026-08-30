@@ -3,8 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Anna Jungmannová — Digital Forensics &amp; Cyber Threat Intelligence</title>
-<meta name="description" content="Research profile of Anna Jungmannová — Cyber Threat Intelligence, Digital Forensics, Cybercrime-as-a-Service, Darknet/OSINT analysis.">
+<title>Anna Jungmannová — DFIR &amp; CTI</title>
+<meta name="description" content="Research profile of Anna Jungmannová">
 <link rel="stylesheet" href="style.css">
 </head>
 <body>
@@ -38,38 +38,41 @@
     </div>
   </header>
 
-  <section id="about">
+<section id="about">
     <p class="eyebrow"><span class="en">Overview</span><span class="ko">개요</span></p>
     <p class="en">I study how cybercrime is organized as a market — how access, tools, and stolen data are packaged and sold between criminal actors, and what that structure reveals to investigators. My background sits between six years of applied security operations and a master's research focus on Cybercrime-as-a-Service, using OSINT and network analysis to map how threat actors organize and transact on darknet and adjacent forums.</p>
     <p class="ko">저는 사이버범죄가 하나의 시장으로서 어떻게 조직되는지를 연구합니다 — 접근 권한, 도구, 탈취된 데이터가 범죄자들 사이에서 어떻게 패키징되고 거래되는지, 그리고 그 구조가 수사관들에게 무엇을 알려주는지를 살펴봅니다. 저의 배경은 6년간의 실무 보안 운영 경험과, OSINT 및 네트워크 분석을 활용해 다크넷 및 인접 포럼에서 위협 행위자들이 어떻게 조직되고 거래하는지를 매핑하는 석사 연구(서비스형 사이버범죄, CaaS)를 결합합니다.</p>
     <p class="en">I'm seeking a doctoral position in Korea to extend this work into digital forensics and cyber threat intelligence research — combining the investigative rigor of forensic method with the pattern-finding of network analysis.</p>
     <p class="ko">저는 이 연구를 디지털 포렌식 및 사이버 위협 인텔리전스 연구로 확장하기 위해 한국에서의 박사 과정 진학을 준비하고 있습니다 — 포렌식 방법론의 수사적 엄밀함과 네트워크 분석의 패턴 탐지 능력을 결합하고자 합니다.</p>
   </section>
-
+ 
   <section id="focus">
     <p class="eyebrow"><span class="en">Focus Areas</span><span class="ko">연구 분야</span></p>
     <div class="foci">
       <span><span class="en">Cyber Threat Intelligence</span><span class="ko">사이버 위협 인텔리전스</span></span>
       <span><span class="en">Digital Forensics</span><span class="ko">디지털 포렌식</span></span>
-      <span><span class="en">Cybercrime-as-a-Service</span><span class="ko">서비스형 사이버범죄(CaaS)</span></span>
       <span><span class="en">Darknet &amp; OSINT Analysis</span><span class="ko">다크넷 &amp; OSINT 분석</span></span>
-      <span><span class="en">Network Analysis of Threat Actors</span><span class="ko">위협 행위자 네트워크 분석</span></span>
     </div>
   </section>
-
+ 
   <section id="thesis">
     <p class="eyebrow"><span class="en">Current Research</span><span class="ko">현재 연구</span></p>
     <div class="case-note">
       <p class="label"><span class="en">M.S. Thesis — In Progress</span><span class="ko">석사 학위논문 — 진행 중</span></p>
-      <h3><span class="en">Analysis of Cybercrime-as-a-Service Models</span><span class="ko">서비스형 사이버범죄(CaaS) 모델 분석</span></h3>
-      <p class="en">Applies OSINT collection and network analysis methods to map how threat actors organize, advertise, and transact within Cybercrime-as-a-Service ecosystems — treating the darknet market not just as a data source, but as a structured economy with its own logic of trust, reputation, and specialization.</p>
-      <p class="ko">OSINT 수집 및 네트워크 분석 기법을 적용하여, 위협 행위자들이 CaaS 생태계 내에서 어떻게 조직되고 광고되며 거래되는지를 매핑합니다 — 다크넷 마켓을 단순한 데이터 원천이 아니라, 신뢰·평판·전문화라는 고유한 논리를 지닌 구조화된 경제로 다룹니다.</p>
+      <h3><span class="en">Cybercrime-as-a-Service (CaaS)</span><span class="ko">서비스형 사이버범죄(CaaS) 모델 분석</span></h3>
+      <ul class="xp-list">
+        <li><span class="en">Developed an automated, longitudinal scraping pipeline over Tor/Tails OS targeting three darknet marketplaces (Abacus, Nexus, and Vortex) between May and June 2025.</span><span class="ko">2025년 5월~6월 동안 3개 주요 다크넷 마켓플레이스(Abacus, Nexus, Vortex)를 대상으로 Tor/Tails OS 기반의 자동화 수집 파이프라인 구축 및 종단적 연구 수행.</span></li>
+        <li><span class="en">Ingested 8,337 raw listings, generating a canonical master dataset of 1,609 unique products across 11 standardized CaaS categories.</span><span class="ko">총 8,337건의 원시 데이터를 수집·정제하여, 11개 표준 CaaS 범주로 구성된 1,609개 고유 상품 마스터 데이터셋 구축.</span></li>
+        <li><span class="en">Evaluated marketplace concentration, category specialization (e.g., malware/exploits representing 47.42% of unique offers), and pricing behaviors.</span><span class="ko">시장 집중도, 카테고리별 특화도(악성코드/익스플로잇이 전체 고유 상품의 47.42% 점유) 및 가격 결정 메커니즘 분석.</span></li>
+        <li><span class="en">Used non-parametric statistical tests (Kruskal-Wallis, Dunn's post-hoc) to reveal distinct cross-market price segmentation rather than a unified darknet price floor.</span><span class="ko">비모수 통계 검정(Kruskal-Wallis, Dunn 사후검정)을 통해 다크넷 시장이 단일 가격대가 아닌 플랫폼별로 분화된 가격 구조를 가짐을 규명.</span></li>
+        <li><span class="en">Quantified multi-homing vendor dynamics and cross-market price discrepancies (arbitrage ratios up to 2.86).</span><span class="ko">다중 입점(Multi-homing) 벤더의 활동 패턴 및 플랫폼 간 가격 차별화(차익거래 비율 최대 2.86배) 실증 분석.</span></li>
+      </ul>
     </div>
   </section>
-
+ 
   <section id="education">
     <p class="eyebrow"><span class="en">Education</span><span class="ko">학력</span></p>
-
+ 
     <div class="record">
       <div class="record-head">
         <span class="name"><span class="en">Prague University of Economics and Business (VŠE)</span><span class="ko">프라하 경제경영대학교 (VŠE)</span></span>
@@ -88,7 +91,7 @@
         <span class="ko">순위: <b>47명 중 6위</b> · 동일 전공·학년 기준 상위 <b>12.77%</b> (대학 공식 산정) · 평균 1.3/4.0(체코) ≈ 3.70/4.0(미국) ≈ <b>4.16/4.5</b>(한국 환산) · VSE 교과 평균 90.3%</span>
       </p>
     </div>
-
+ 
     <div class="record">
       <div class="record-head">
         <span class="name"><span class="en">Konkuk University — Exchange Semester</span><span class="ko">건국대학교 — 교환학기</span></span>
@@ -103,7 +106,7 @@
         <div class="log-line"><span class="course">korean_film_and_culture</span><span class="grade">B+</span></div>
       </div>
     </div>
-
+ 
     <div class="record">
       <div class="record-head">
         <span class="name"><span class="en">Korea University — Intl. Summer Campus</span><span class="ko">고려대학교 — 국제하계대학</span></span>
@@ -115,7 +118,7 @@
         <div class="log-line"><span class="course">intro_to_hanja</span><span class="grade">A</span></div>
       </div>
     </div>
-
+ 
     <div class="record">
       <div class="record-head">
         <span class="name"><span class="en">Masaryk University Brno</span><span class="ko">마사리크 대학교 브르노</span></span>
@@ -124,10 +127,10 @@
       <p class="meta"><span class="en">B.S., Ecological &amp; Evolutionary Biology · 2017–2020</span><span class="ko">생태 및 진화생물학 학사 · 2017–2020</span></p>
     </div>
   </section>
-
+ 
   <section id="experience">
     <p class="eyebrow"><span class="en">Professional Experience</span><span class="ko">경력</span></p>
-
+ 
     <div class="xp">
       <div class="xp-head">
         <span class="role-name"><span class="en">Security Delivery Senior Analyst — Accenture</span><span class="ko">보안 딜리버리 시니어 분석가 — Accenture</span></span>
@@ -139,7 +142,7 @@
         <li><span class="en">Bridge technical security engineering and governance stakeholders, translating PAM architecture and session-audit capabilities into risk reporting used in decision-making</span><span class="ko">기술 보안 엔지니어링과 거버넌스 이해관계자를 연결, PAM 아키텍처 및 세션 감사 기능을 의사결정에 활용되는 리스크 보고로 전환</span></li>
       </ul>
     </div>
-
+ 
     <div class="xp">
       <div class="xp-head">
         <span class="role-name"><span class="en">Quality Assurance Engineer — Figure</span><span class="ko">품질보증(QA) 엔지니어 — Figure</span></span>
@@ -151,7 +154,7 @@
       </ul>
     </div>
   </section>
-
+ 
   <section id="skills">
     <p class="eyebrow"><span class="en">Skills</span><span class="ko">기술</span></p>
     <dl class="skills-grid">
@@ -167,38 +170,60 @@
       <dd><span class="en">English (fluent), Czech (native), Korean (TOPIK 2, in progress)</span><span class="ko">영어(유창), 체코어(모국어), 한국어(TOPIK 2급, 학습 중)</span></dd>
     </dl>
   </section>
-
+ 
+  <section id="media">
+    <p class="eyebrow"><span class="en">Media Presence</span><span class="ko">미디어 활동</span></p>
+    <p class="en">Selected through a competitive internal process to represent Accenture in a company-wide media campaign encouraging women into IT, featured across a magazine podcast, interview article, and virtual careers event.</p>
+    <p class="ko">여성의 IT 분야 진출을 장려하는 Accenture의 사내 미디어 캠페인에 사내 선발 과정을 거쳐 대표로 참여, 잡지 팟캐스트·인터뷰 기사·온라인 커리어 행사에 출연.</p>
+    <ul class="xp-list">
+      <li>
+        <span class="en">Podcast guest, <i>"Dostat se do IT není tak složité"</i> ("Getting into IT isn't that complicated") — Heroine's <i>Ženy v IT</i> (Women in IT) series, May 2022. <a href="https://www.heroine.cz/podcasty-zeny-v-it-epizoda2" target="_blank" rel="noopener">Listen on Heroine.cz →</a></span>
+        <span class="ko">팟캐스트 출연, <i>"Dostat se do IT není tak složité"</i>(IT 진입, 생각보다 어렵지 않아요) — Heroine <i>Ženy v IT</i>(여성과 IT) 시리즈, 2022년 5월. <a href="https://www.heroine.cz/podcasty-zeny-v-it-epizoda2" target="_blank" rel="noopener">Heroine.cz에서 듣기 →</a></span>
+      </li>
+      <li>
+        <span class="en">Interview feature, <i>"Odbornice na kyberbezpečnost a HR specialista se shodují: V IT je obrovský prostor pro rozvoj vašich schopností"</i> — Heroine.cz, May 2022. <a href="https://www.heroine.cz/zeny-it/8342-odbornice-na-kyberbezpecnost-a-hr-specialista-se-shoduji-v-it-je-obrovsky-prostor-pro-rozvoj-vasich-schopnosti" target="_blank" rel="noopener">Read on Heroine.cz →</a></span>
+        <span class="ko">인터뷰 기사, <i>"Odbornice na kyberbezpečnost a HR specialista se shodují: V IT je obrovský prostor pro rozvoj vašich schopností"</i>(사이버보안 전문가와 HR 전문가가 입을 모아 말하다: IT에는 역량을 키울 엄청난 기회가 있다) — Heroine.cz, 2022년 5월. <a href="https://www.heroine.cz/zeny-it/8342-odbornice-na-kyberbezpecnost-a-hr-specialista-se-shoduji-v-it-je-obrovsky-prostor-pro-rozvoj-vasich-schopnosti" target="_blank" rel="noopener">Heroine.cz에서 읽기 →</a></span>
+      </li>
+      <li>
+        <span class="en">Featured panelist, Accenture's <i>Women Go Tech</i> virtual careers event, covered by Heroine.cz, May 2022. <a href="https://www.heroine.cz/zena-a-svet/8433-zeny-miri-do-technologii-jiz-zanedlouho-startuje-women-go-tech-virtualni-event-pro-nastartovani-kariery-v-technologiich-a" target="_blank" rel="noopener">Read on Heroine.cz →</a></span>
+        <span class="ko">Accenture <i>Women Go Tech</i> 온라인 커리어 행사 출연, Heroine.cz 보도, 2022년 5월. <a href="https://www.heroine.cz/zena-a-svet/8433-zeny-miri-do-technologii-jiz-zanedlouho-startuje-women-go-tech-virtualni-event-pro-nastartovani-kariery-v-technologiich-a" target="_blank" rel="noopener">Heroine.cz에서 읽기 →</a></span>
+      </li>
+    </ul>
+  </section>
+ 
   <section id="involvement">
     <p class="eyebrow"><span class="en">Projects &amp; Involvement</span><span class="ko">프로젝트 &amp; 활동</span></p>
-
+ 
     <p class="subhead"><span class="en">Achievements</span><span class="ko">수상 및 활동</span></p>
     <ul class="xp-list">
       <li><span class="en">Junction Hackathon — Track Winner, as part of a team</span><span class="ko">Junction 해커톤 — 팀 부문 트랙 우승</span></li>
       <li><span class="en">Upcoming talk at DCG420 (DEF CON Group 420, Czech chapter) — November 2026</span><span class="ko">DCG420(체코 DEF CON 챕터) 발표 예정 — 2026년 11월</span></li>
     </ul>
-
+ 
     <p class="subhead"><span class="en">Volunteering &amp; Outreach</span><span class="ko">봉사활동 &amp; 아웃리치</span></p>
     <ul class="xp-list">
-      <li><span class="en">Co-developed a multi-month cybersecurity curriculum for Czechitas (nonprofit tech education for women)</span><span class="ko">여성 대상 비영리 기술교육 단체 Czechitas의 수개월 과정 사이버보안 커리큘럼 공동 개발</span></li>
+      <li><span class="en">Co-created the curriculum for the Czechitas Cybersecurity Academy (nonprofit tech education for women), reaching an estimated 480 women across four cohorts of ~120</span><span class="ko">여성 대상 비영리 기술교육 단체 Czechitas의 사이버보안 아카데미(Cybersecurity Academy) 커리큘럼 공동 개발 — 약 120명씩 4개 기수, 총 약 480명의 여성에게 영향</span></li>
       <li><span class="en">Volunteer translator, Khan Academy Czech localization</span><span class="ko">Khan Academy 체코어 번역 자원봉사</span></li>
-      <li><span class="en">Featured in a podcast and interview for a company-wide campaign encouraging women into IT</span><span class="ko">여성의 IT 분야 진출을 장려하는 사내 캠페인의 팟캐스트 및 인터뷰 참여</span></li>
-      <li><span class="en">Community volunteering: environmental cleanups, tree planting, blood donation, charity races</span><span class="ko">지역사회 봉사: 환경 정화, 나무 심기, 헌혈, 자선 달리기 참가</span></li>
+      <li><span class="en">Charity races</span><span class="ko">자선 달리기 참가</span></li>
+      <li><span class="en">Environmental cleanups (litter picking)</span><span class="ko">환경 정화 활동 (쓰레기 줍기)</span></li>
+      <li><span class="en">Blood donation</span><span class="ko">헌혈</span></li>
+      <li><span class="en">Kimjang (community kimchi-making) volunteer, during exchange semester at Konkuk University, Seoul</span><span class="ko">건국대학교 교환학기 중 김장 나눔 봉사활동 참여 (서울)</span></li>
     </ul>
   </section>
-
+ 
   <footer>
     <span class="en">Prague, Czech Republic</span><span class="ko">체코 프라하</span>
     <span class="en">Last updated August 2026</span><span class="ko">최종 업데이트: 2026년 8월</span>
   </footer>
-
+ 
 </div>
-
+ 
 <script>
   (function(){
     var STORAGE_KEY = 'aj-site-lang';
     var html = document.documentElement;
     var buttons = document.querySelectorAll('[data-set-lang]');
-
+ 
     function applyLang(lang){
       html.setAttribute('data-lang', lang);
       html.setAttribute('lang', lang === 'ko' ? 'ko' : 'en');
@@ -207,13 +232,13 @@
       });
       try { localStorage.setItem(STORAGE_KEY, lang); } catch(e) {}
     }
-
+ 
     buttons.forEach(function(btn){
       btn.addEventListener('click', function(){
         applyLang(btn.getAttribute('data-set-lang'));
       });
     });
-
+ 
     var saved = null;
     try { saved = localStorage.getItem(STORAGE_KEY); } catch(e) {}
     if (saved === 'en' || saved === 'ko') {
@@ -224,6 +249,6 @@
     }
   })();
 </script>
-
+ 
 </body>
 </html>

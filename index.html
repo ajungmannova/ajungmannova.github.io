@@ -9,36 +9,42 @@
 </head>
 <body>
 
-<div class="langbar" role="group" aria-label="Language / 언어 선택">
-  <button type="button" data-set-lang="en" class="active">EN</button>
-  <button type="button" data-set-lang="ko">KO</button>
-</div>
+<!-- Top bar: on phones/tablets it is one sticky row (AJ mark · swipeable sections · EN/KO);
+     on wide screens only the EN/KO switch stays visible, top-right. -->
+<div class="topbar">
+  <a class="brand" href="#top" aria-label="Back to top">AJ</a>
 
-<nav class="sitenav" aria-label="Section navigation">
-  <a href="#about"><span class="en">Overview</span><span class="ko">개요</span></a>
-  <a href="#focus"><span class="en">Focus</span><span class="ko">연구 분야</span></a>
-  <a href="#thesis"><span class="en">Thesis</span><span class="ko">학위논문</span></a>
-  <a href="#education"><span class="en">Education</span><span class="ko">학력</span></a>
-  <a href="#experience"><span class="en">Experience</span><span class="ko">경력</span></a>
-  <a href="#skills"><span class="en">Skills</span><span class="ko">기술</span></a>
-  <a href="#media"><span class="en">Media</span><span class="ko">미디어</span></a>
-  <a href="#involvement"><span class="en">Involvement</span><span class="ko">활동</span></a>
-</nav>
+  <nav class="sitenav" aria-label="Section navigation">
+    <a href="#about" data-section="about"><span class="en">Overview</span><span class="ko">개요</span></a>
+    <a href="#focus" data-section="focus"><span class="en">Interests</span><span class="ko">관심 분야</span></a>
+    <a href="#education" data-section="education"><span class="en">Education</span><span class="ko">학력</span></a>
+    <a href="#thesis" data-section="thesis"><span class="en">Research</span><span class="ko">연구</span></a>
+    <a href="#experience" data-section="experience"><span class="en">Experience</span><span class="ko">경력</span></a>
+    <a href="#skills" data-section="skills"><span class="en">Skills</span><span class="ko">기술·어학</span></a>
+    <a href="#involvement" data-section="involvement"><span class="en">Activities</span><span class="ko">활동</span></a>
+    <a href="#media" data-section="media"><span class="en">Media</span><span class="ko">미디어</span></a>
+  </nav>
+
+  <div class="langbar" role="group" aria-label="Language / 언어 선택">
+    <button type="button" data-set-lang="en" class="active">EN</button>
+    <button type="button" data-set-lang="ko">KO</button>
+  </div>
+</div>
 
 <nav class="sidenav" aria-label="Section navigation (rolling)">
   <a href="#about" data-section="about"><span class="en">Overview</span><span class="ko">개요</span></a>
-  <a href="#focus" data-section="focus"><span class="en">Focus</span><span class="ko">연구 분야</span></a>
-  <a href="#thesis" data-section="thesis"><span class="en">Thesis</span><span class="ko">학위논문</span></a>
+  <a href="#focus" data-section="focus"><span class="en">Interests</span><span class="ko">관심 분야</span></a>
   <a href="#education" data-section="education"><span class="en">Education</span><span class="ko">학력</span></a>
+  <a href="#thesis" data-section="thesis"><span class="en">Research</span><span class="ko">연구</span></a>
   <a href="#experience" data-section="experience"><span class="en">Experience</span><span class="ko">경력</span></a>
-  <a href="#skills" data-section="skills"><span class="en">Skills</span><span class="ko">기술</span></a>
+  <a href="#skills" data-section="skills"><span class="en">Skills</span><span class="ko">기술·어학</span></a>
+  <a href="#involvement" data-section="involvement"><span class="en">Activities</span><span class="ko">활동</span></a>
   <a href="#media" data-section="media"><span class="en">Media</span><span class="ko">미디어</span></a>
-  <a href="#involvement" data-section="involvement"><span class="en">Involvement</span><span class="ko">활동</span></a>
 </nav>
 
 <div class="wrap">
 
-  <header>
+  <header id="top">
     <div class="seal" aria-hidden="true">AJ</div>
     <p class="kicker">
       <span class="en">Research Profile — Digital Forensics &amp; CTI</span>
@@ -69,7 +75,7 @@
   </section>
 
   <section id="focus">
-    <p class="eyebrow"><span class="en">Focus Areas</span><span class="ko">연구 분야</span></p>
+    <p class="eyebrow"><span class="en">Research Interests</span><span class="ko">연구 관심 분야</span></p>
     <div class="foci">
       <span><span class="en">Cyber Threat Intelligence</span><span class="ko">사이버 위협 인텔리전스</span></span>
       <span><span class="en">Digital Forensics</span><span class="ko">디지털 포렌식</span></span>
@@ -79,8 +85,78 @@
     </div>
   </section>
 
+  <section id="education">
+    <p class="eyebrow"><span class="en">Education</span><span class="ko">학력</span></p>
+
+    <p class="subhead"><span class="en">Degree programs</span><span class="ko">학위과정</span></p>
+
+    <div class="record">
+      <div class="record-head">
+        <span class="name"><span class="en">Prague University of Economics and Business (VŠE)</span><span class="ko">프라하 경제경영대학교 (VŠE)</span></span>
+        <span class="where"><span class="en">Prague, CZ</span><span class="ko">체코 프라하</span></span>
+      </div>
+      <p class="meta"><span class="en">2024.09 – 2027.01 (expected) · M.S., Information Management</span><span class="ko">2024.09 – 2027.01 (졸업 예정) · 정보경영학 석사</span></p>
+      <div class="log">
+        <div class="log-line"><span class="course">digital_forensic_analysis</span><span class="grade">1 · 98%</span></div>
+        <div class="log-line"><span class="course">is_security_management</span><span class="grade">1 · 99%</span></div>
+        <div class="log-line"><span class="course">penetration_testing</span><span class="grade">1 · 91.5%</span></div>
+        <div class="log-line"><span class="course">intro_cybersecurity</span><span class="grade">1 · 91.5%</span></div>
+        <div class="log-line"><span class="course">social_informatics</span><span class="grade">1 · 91%</span></div>
+      </div>
+      <p class="rank-line">
+        <span class="en">rank: <b>3 / 59</b> · top <b>5.08%</b> of cohort (university-computed) · average 1.3/4.0 (Czech) ≈ <b>4.16/4.5</b> (KR-scaled) · VŠE coursework avg. 91.24%</span>
+        <span class="ko">순위: <b>59명 중 3위</b> · 동일 전공·학년 기준 상위 <b>5.08%</b> (대학 공식 산정) · 평균 1.3/4.0 (체코) ≈ <b>4.16/4.5</b> (한국 환산) · VŠE 교과 평균 91.24%</span>
+      </p>
+    </div>
+
+    <div class="record">
+      <div class="record-head">
+        <span class="name"><span class="en">Masaryk University</span><span class="ko">마사리크 대학교</span></span>
+        <span class="where"><span class="en">Brno, CZ</span><span class="ko">체코 브르노</span></span>
+      </div>
+      <p class="meta"><span class="en">2017 – 2020 · B.S., Ecological &amp; Evolutionary Biology</span><span class="ko">2017 – 2020 · 생태 및 진화생물학 학사</span></p>
+    </div>
+
+    <p class="subhead"><span class="en">Exchange &amp; short-term programs in Korea (non-degree)</span><span class="ko">한국 교환 및 단기 연수 (비학위)</span></p>
+
+    <div class="record">
+      <div class="record-head">
+        <span class="name"><span class="en">Korea University — International Summer Campus</span><span class="ko">고려대학교 — 국제하계대학</span></span>
+        <span class="where"><span class="en">Seoul, KR</span><span class="ko">대한민국 서울</span></span>
+      </div>
+      <p class="meta"><span class="en">2026.07 · GPA 4.25/4.5</span><span class="ko">2026.07 · 평점 4.25/4.5</span></p>
+      <div class="log">
+        <div class="log-line"><span class="course">intermediate_korean</span><span class="grade">A+</span></div>
+        <div class="log-line"><span class="course">intro_to_hanja</span><span class="grade">A</span></div>
+      </div>
+    </div>
+
+    <div class="record">
+      <div class="record-head">
+        <span class="name"><span class="en">Konkuk University — Exchange Semester</span><span class="ko">건국대학교 — 교환학기</span></span>
+        <span class="where"><span class="en">Seoul, KR</span><span class="ko">대한민국 서울</span></span>
+      </div>
+      <p class="meta"><span class="en">2025.09 – 2025.12 · Exchange student · GPA 4.13/4.5</span><span class="ko">2025.09 – 2025.12 · 교환학생 · 평점 4.13/4.5</span></p>
+      <div class="log">
+        <div class="log-line"><span class="course">media_research_methods</span><span class="grade">A+</span></div>
+        <div class="log-line"><span class="course">developing_countries_seminar</span><span class="grade">A+</span></div>
+        <div class="log-line"><span class="course">understanding_korean_culture</span><span class="grade">A+</span></div>
+        <div class="log-line"><span class="course">korean_intermediate</span><span class="grade">B+</span></div>
+        <div class="log-line"><span class="course">korean_film_and_culture</span><span class="grade">B+</span></div>
+      </div>
+    </div>
+
+    <div class="record">
+      <div class="record-head">
+        <span class="name"><span class="en">University of Seoul — Summer Korean Language &amp; Culture Program</span><span class="ko">서울시립대학교 — 하계 한국어·한국문화 프로그램</span></span>
+        <span class="where"><span class="en">Seoul, KR</span><span class="ko">대한민국 서울</span></span>
+      </div>
+      <p class="meta"><span class="en">2023.06 – 2023.07 · Korean language and Korean culture courses</span><span class="ko">2023.06 – 2023.07 · 한국어 및 한국문화 수업</span></p>
+    </div>
+  </section>
+
   <section id="thesis">
-    <p class="eyebrow"><span class="en">Current Research</span><span class="ko">현재 연구</span></p>
+    <p class="eyebrow"><span class="en">Research &amp; Talks</span><span class="ko">연구 및 발표</span></p>
     <div class="case-note">
       <p class="label"><span class="en">M.S. Thesis</span><span class="ko">석사 학위논문</span></p>
       <h3>
@@ -99,65 +175,12 @@
         <li><span class="en">Captured the final weeks of Abacus before its July 2025 exit.</span><span class="ko">2025년 7월 Abacus 폐쇄 직전 몇 주간을 기록.</span></li>
       </ul>
     </div>
-  </section>
 
-  <section id="education">
-    <p class="eyebrow"><span class="en">Education</span><span class="ko">학력</span></p>
-
-        <div class="record">
-      <div class="record-head">
-        <span class="name"><span class="en">Prague University of Economics and Business (VŠE)</span><span class="ko">프라하 경제경영대학교 (VŠE)</span></span>
-        <span class="where"><span class="en">Prague, CZ</span><span class="ko">체코 프라하</span></span>
-      </div>
-      <p class="meta"><span class="en">M.S., Information Management — expected Feb 2027</span><span class="ko">정보경영학 석사 — 2027년 2월 졸업 예정</span></p>
-      <div class="log">
-        <div class="log-line"><span class="course">digital_forensic_analysis</span><span class="grade">1 · 98%</span></div>
-        <div class="log-line"><span class="course">is_security_management</span><span class="grade">1 · 99%</span></div>
-        <div class="log-line"><span class="course">penetration_testing</span><span class="grade">1 · 91.5%</span></div>
-        <div class="log-line"><span class="course">intro_cybersecurity</span><span class="grade">1 · 91.5%</span></div>
-        <div class="log-line"><span class="course">social_informatics</span><span class="grade">1 · 91%</span></div>
-      </div>
-      <p class="rank-line">
-        <span class="en">rank: <b>3. / 59</b> · top <b>5,08%</b> of cohort (university-computed) · average 1.3/4.0 (Czech) ≈ <b>4.16/4.5</b> (KR-scaled) · VSE coursework avg. 91.24%</span>
-        <span class="ko">순위: <b>59명 중 3위</b> · 동일 전공·학년 기준 상위 <b>5,08%</b> (대학 공식 산정) · 평균 1.3/4.0 (체코) ≈ <b>4.16/4.5</b>(한국 환산) · VSE 교과 평균 91.24%</span>
-      </p>
-    </div>
-
-        <div class="record">
-      <div class="record-head">
-        <span class="name"><span class="en">Korea University — Intl. Summer Campus</span><span class="ko">고려대학교 — 국제하계대학</span></span>
-        <span class="where"><span class="en">Seoul, KR</span><span class="ko">대한민국 서울</span></span>
-      </div>
-      <p class="meta"><span class="en">Summer 2026 · GPA 4.25/4.5</span><span class="ko">2026년 여름학기 · 평점 4.25/4.5</span></p>
-      <div class="log">
-        <div class="log-line"><span class="course">intermediate_korean</span><span class="grade">A+</span></div>
-        <div class="log-line"><span class="course">intro_to_hanja</span><span class="grade">A</span></div>
-      </div>
-    </div>
-
-    <div class="record">
-      <div class="record-head">
-        <span class="name"><span class="en">Konkuk University — Exchange Semester</span><span class="ko">건국대학교 — 교환학기</span></span>
-        <span class="where"><span class="en">Seoul, KR</span><span class="ko">대한민국 서울</span></span>
-      </div>
-      <p class="meta"><span class="en">GPA 4.13/4.5</span><span class="ko">평점 4.13/4.5</span></p>
-      <div class="log">
-        <div class="log-line"><span class="course">media_research_methods</span><span class="grade">A+</span></div>
-        <div class="log-line"><span class="course">developing_countries_seminar</span><span class="grade">A+</span></div>
-        <div class="log-line"><span class="course">understanding_korean_culture</span><span class="grade">A+</span></div>
-        <div class="log-line"><span class="course">korean_intermediate</span><span class="grade">B+</span></div>
-        <div class="log-line"><span class="course">korean_film_and_culture</span><span class="grade">B+</span></div>
-      </div>
-    </div>
-
-    <div class="record">
-      <div class="record-head">
-        <span class="name"><span class="en">Masaryk University Brno</span><span class="ko">마사리크 대학교 브르노</span></span>
-        <span class="where"><span class="en">Brno, CZ</span><span class="ko">체코 브르노</span></span>
-      </div>
-      <p class="meta"><span class="en">B.S., Ecological &amp; Evolutionary Biology · 2017–2020</span><span class="ko">생태 및 진화생물학 학사 · 2017–2020</span></p>
-    </div>
-
+    <p class="subhead"><span class="en">Talks</span><span class="ko">발표</span></p>
+    <ul class="xp-list">
+      <li><span class="tag-upcoming"><span class="en">Upcoming</span><span class="ko">예정</span></span> <span class="en">OpenAlt 2026, Brno — talk on darknet marketplaces and Cybercrime-as-a-Service (recording to be linked)</span><span class="ko">OpenAlt 2026(체코 브르노) — 다크넷 마켓플레이스와 서비스형 사이버범죄(CaaS)에 관한 발표 (녹화 영상 링크 예정)</span></li>
+      <li><span class="tag-upcoming"><span class="en">Upcoming</span><span class="ko">예정</span></span> <span class="en">DCG420 (DEF CON Group 420, Czech chapter) — November 2026</span><span class="ko">DCG420(체코 DEF CON 챕터) — 2026년 11월</span></li>
+    </ul>
   </section>
 
   <section id="experience">
@@ -188,8 +211,10 @@
   </section>
 
   <section id="skills">
-    <p class="eyebrow"><span class="en">Skills</span><span class="ko">기술</span></p>
+    <p class="eyebrow"><span class="en">Skills &amp; Languages</span><span class="ko">기술 및 어학</span></p>
     <dl class="skills-grid">
+      <dt><span class="en">Languages</span><span class="ko">어학</span></dt>
+      <dd><span class="en">Korean — TOPIK I, Level 2 (192/200) · English — C1 (IELTS 8, CAE 198/200) · Czech — native</span><span class="ko">한국어 — TOPIK I 2급 (192/200) · 영어 — C1 (IELTS 8, CAE 198/200) · 체코어 — 모국어</span></dd>
       <dt><span class="en">Forensics &amp; CTI</span><span class="ko">포렌식 &amp; CTI</span></dt>
       <dd><span class="en">Digital forensics, OSINT, darknet analysis, vulnerability assessment (thesis &amp; independent research)</span><span class="ko">디지털 포렌식, OSINT, 다크넷 분석, 취약점 평가 (학위논문 및 개인 연구)</span></dd>
       <dt><span class="en">Privileged Access Mgmt</span><span class="ko">권한 접근 관리(PAM)</span></dt>
@@ -198,30 +223,15 @@
       <dd>Python (automation, data analysis), C#</dd>
       <dt><span class="en">Infrastructure</span><span class="ko">인프라</span></dt>
       <dd>Linux, AWS, Cloud, Git</dd>
-      <dt><span class="en">Languages</span><span class="ko">언어</span></dt>
-      <dd><span class="en">English (C1; IELTS 8, CAE 198/200), Korean (A2; TOPIK 1 192/200), Czech (native)</span><span class="ko">영어(C1; IELTS 8, CAE 198/200), 한국어(2급; TOPIK 1 192/200), 체코어(모국어)</span></dd>
     </dl>
   </section>
 
-  <section id="media">
-    <p class="eyebrow"><span class="en">Media Presence</span><span class="ko">미디어 활동</span></p>
-    <p class="en">Selected as a company representative for a Czech Republic/Slovakia marketing campaign encouraging women into IT — resulting in a <a href="https://www.heroine.cz/podcasty-zeny-v-it-epizoda2" target="_blank" rel="noopener">podcast</a>, an <a href="https://www.heroine.cz/zeny-it/8342-odbornice-na-kyberbezpecnost-a-hr-specialista-se-shoduji-v-it-je-obrovsky-prostor-pro-rozvoj-vasich-schopnosti" target="_blank" rel="noopener">article</a>, and a <a href="https://www.heroine.cz/zena-a-svet/8433-zeny-miri-do-technologii-jiz-zanedlouho-startuje-women-go-tech-virtualni-event-pro-nastartovani-kariery-v-technologiich-a" target="_blank" rel="noopener">webcast</a> feature on Heroine.cz (May 2022).</p>
-    <p class="ko">체코·슬로바키아 지역 대상, 여성의 IT 진출을 장려하는 마케팅 캠페인에 회사 대표로 선발 — Heroine.cz의 <a href="https://www.heroine.cz/podcasty-zeny-v-it-epizoda2" target="_blank" rel="noopener">팟캐스트</a>, <a href="https://www.heroine.cz/zeny-it/8342-odbornice-na-kyberbezpecnost-a-hr-specialista-se-shoduji-v-it-je-obrovsky-prostor-pro-rozvoj-vasich-schopnosti" target="_blank" rel="noopener">기사</a>, <a href="https://www.heroine.cz/zena-a-svet/8433-zeny-miri-do-technologii-jiz-zanedlouho-startuje-women-go-tech-virtualni-event-pro-nastartovani-kariery-v-technologiich-a" target="_blank" rel="noopener">웹캐스트</a>로 소개 (2022년 5월).</p>
-    <p class="media-upcoming"><span class="tag-upcoming"><span class="en">Upcoming</span><span class="ko">예정</span></span> <span class="en">Guest on the Czech Cyber TV podcast.</span><span class="ko">Czech Cyber TV 팟캐스트 게스트 출연.</span></p>
-  </section>
-
   <section id="involvement">
-    <p class="eyebrow"><span class="en">Projects &amp; Involvement</span><span class="ko">프로젝트 &amp; 활동</span></p>
+    <p class="eyebrow"><span class="en">Awards &amp; Activities</span><span class="ko">수상 및 활동</span></p>
 
-    <p class="subhead"><span class="en">Achievements</span><span class="ko">수상 및 활동</span></p>
+    <p class="subhead"><span class="en">Awards</span><span class="ko">수상</span></p>
     <ul class="xp-list">
       <li><span class="en">Junction Hackathon — Track Winner, as part of a team</span><span class="ko">Junction 해커톤 — 팀 부문 트랙 우승</span></li>
-    </ul>
-
-    <p class="subhead"><span class="en">Talks</span><span class="ko">발표</span></p>
-    <ul class="xp-list">
-      <li><span class="tag-upcoming"><span class="en">Upcoming</span><span class="ko">예정</span></span> <span class="en">OpenAlt 2026, Brno — talk on darknet marketplaces and Cybercrime-as-a-Service (recording to be linked)</span><span class="ko">OpenAlt 2026(체코 브르노) — 다크넷 마켓플레이스와 서비스형 사이버범죄(CaaS)에 관한 발표 (녹화 영상 링크 예정)</span></li>
-      <li><span class="tag-upcoming"><span class="en">Upcoming</span><span class="ko">예정</span></span> <span class="en">DCG420 (DEF CON Group 420, Czech chapter) — November 2026</span><span class="ko">DCG420(체코 DEF CON 챕터) — 2026년 11월</span></li>
     </ul>
 
     <p class="subhead"><span class="en">Volunteering &amp; Outreach</span><span class="ko">봉사활동 &amp; 아웃리치</span></p>
@@ -233,6 +243,13 @@
       <li><span class="en">Charity races, Environmental cleanups (litter picking), Blood donation</span><span class="ko">자선 달리기 참가, 환경 정화 활동 (쓰레기 줍기), 헌혈</span></li>
       <li><span class="en">Kimjang (community kimchi-making) volunteer, during exchange semester at Konkuk University, Seoul</span><span class="ko">건국대학교 교환학기 중 김장 나눔 봉사활동 참여 (서울)</span></li>
     </ul>
+  </section>
+
+  <section id="media">
+    <p class="eyebrow"><span class="en">Media Presence</span><span class="ko">미디어 활동</span></p>
+    <p class="en">Selected as a company representative for a Czech Republic/Slovakia marketing campaign encouraging women into IT — resulting in a <a href="https://www.heroine.cz/podcasty-zeny-v-it-epizoda2" target="_blank" rel="noopener">podcast</a>, an <a href="https://www.heroine.cz/zeny-it/8342-odbornice-na-kyberbezpecnost-a-hr-specialista-se-shoduji-v-it-je-obrovsky-prostor-pro-rozvoj-vasich-schopnosti" target="_blank" rel="noopener">article</a>, and a <a href="https://www.heroine.cz/zena-a-svet/8433-zeny-miri-do-technologii-jiz-zanedlouho-startuje-women-go-tech-virtualni-event-pro-nastartovani-kariery-v-technologiich-a" target="_blank" rel="noopener">webcast</a> feature on Heroine.cz (May 2022).</p>
+    <p class="ko">체코·슬로바키아 지역 대상, 여성의 IT 진출을 장려하는 마케팅 캠페인에 회사 대표로 선발 — Heroine.cz의 <a href="https://www.heroine.cz/podcasty-zeny-v-it-epizoda2" target="_blank" rel="noopener">팟캐스트</a>, <a href="https://www.heroine.cz/zeny-it/8342-odbornice-na-kyberbezpecnost-a-hr-specialista-se-shoduji-v-it-je-obrovsky-prostor-pro-rozvoj-vasich-schopnosti" target="_blank" rel="noopener">기사</a>, <a href="https://www.heroine.cz/zena-a-svet/8433-zeny-miri-do-technologii-jiz-zanedlouho-startuje-women-go-tech-virtualni-event-pro-nastartovani-kariery-v-technologiich-a" target="_blank" rel="noopener">웹캐스트</a>로 소개 (2022년 5월).</p>
+    <p class="media-upcoming"><span class="tag-upcoming"><span class="en">Upcoming</span><span class="ko">예정</span></span> <span class="en">Guest on the Czech Cyber TV podcast.</span><span class="ko">Czech Cyber TV 팟캐스트 게스트 출연.</span></p>
   </section>
 
   <footer>
@@ -277,6 +294,8 @@
 <script>
   (function(){
     var sideLinks = Array.prototype.slice.call(document.querySelectorAll('.sidenav a'));
+    var barNav = document.querySelector('.sitenav');
+    var barLinks = Array.prototype.slice.call(document.querySelectorAll('.sitenav a'));
     if (!sideLinks.length) return;
 
     var sections = sideLinks.map(function(a){
@@ -284,6 +303,22 @@
     });
 
     var ticking = false;
+    var lastActive = -1;
+
+    // Phone/tablet bar: mark the current section and slide it to the middle of the row
+    function syncBar(active){
+      barLinks.forEach(function(a, i){
+        if (i === active) a.setAttribute('aria-current', 'true');
+        else a.removeAttribute('aria-current');
+      });
+      if (active === lastActive || !barNav || barNav.offsetParent === null) { lastActive = active; return; }
+      lastActive = active;
+      var a = barLinks[active];
+      if (!a) return;
+      var target = a.offsetLeft - (barNav.clientWidth - a.offsetWidth) / 2;
+      try { barNav.scrollTo({ left: target, behavior: 'smooth' }); }
+      catch(e) { barNav.scrollLeft = target; }
+    }
 
     function updateActive(){
       ticking = false;
@@ -302,6 +337,7 @@
       sideLinks.forEach(function(a, i){
         a.setAttribute('data-dist', Math.abs(i - closest));
       });
+      syncBar(closest);
     }
 
     function onScroll(){

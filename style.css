@@ -10,7 +10,7 @@
     --line-strong: #111111;
     /* Accent colour for links and tags: */
     /*--accent: #17734a;*/   /* green */
-     --accent: #c2185b;  /* pink */
+    --accent: #c2185b;  /* pink */
     --serif: 'Newsreader', Georgia, 'Times New Roman', serif;
     --sans: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
     --mono: 'IBM Plex Mono', ui-monospace, SFMono-Regular, Menlo, monospace;

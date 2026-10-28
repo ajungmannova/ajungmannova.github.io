@@ -8,6 +8,9 @@
     --ink-faint: #9a9a9a;
     --rule: #dcdcdc;
     --line-strong: #111111;
+    /* Accent colour for links and tags: */
+    /*--accent: #17734a;*/   /* green */
+     --accent: #c2185b;  /* pink */
     --serif: 'Newsreader', Georgia, 'Times New Roman', serif;
     --sans: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
     --mono: 'IBM Plex Mono', ui-monospace, SFMono-Regular, Menlo, monospace;
@@ -52,7 +55,7 @@
     position:fixed;
     top:22px;
     right:24px;
-    z-index:20;
+    z-index:60; /* above the sticky mobile nav (z-index 50) */
     display:flex;
     align-items:center;
     gap:2px;
@@ -160,9 +163,38 @@
     transition:border-color .15s, opacity .15s;
   }
   .links a:hover, .links a:focus-visible{
-    border-color:var(--ink);
-    opacity:0.7;
+    border-color:var(--accent);
+    color:var(--accent);
   }
+
+  /* ---------- Body links (accent instead of browser blue) ---------- */
+  section a{
+    color:var(--accent);
+    text-decoration:underline;
+    text-decoration-thickness:1px;
+    text-underline-offset:3px;
+    text-decoration-color:color-mix(in srgb, var(--accent) 40%, transparent);
+    transition:text-decoration-color .15s;
+  }
+  section a:hover, section a:focus-visible{ text-decoration-color:var(--accent); }
+
+  /* ---------- "Upcoming" tag ---------- */
+  .tag-upcoming{
+    display:inline-block;
+    font-family:var(--mono);
+    font-size:10.5px;
+    line-height:1.6;
+    letter-spacing:0.08em;
+    text-transform:uppercase;
+    color:var(--accent);
+    border:1px solid var(--accent);
+    border-radius:3px;
+    padding:0 5px;
+    margin-right:4px;
+    vertical-align:1px;
+  }
+  html[data-lang="ko"] .tag-upcoming{ font-family:var(--sans-kr); letter-spacing:0; text-transform:none; }
+  .media-upcoming{ margin-top:12px; }
 
   /* ---------- Section scaffolding ---------- */
   section{
@@ -368,6 +400,7 @@
     header{ padding:64px 0 40px; }
     h1{ font-size:34px; }
     .seal{ top:64px; right:24px; width:52px; height:52px; font-size:16px; }
+    .kicker{ padding-right:70px; } /* keep text clear of the AJ seal */
     .skills-grid{ grid-template-columns:1fr; }
     .skills-grid dt{ padding-top:8px; }
     .langbar{ top:16px; right:16px; }
@@ -469,4 +502,9 @@ section[id] { scroll-margin-top: 64px; }
   .sidenav a { color: rgba(255,255,255,0.35); }
   .sidenav a[data-dist="0"] { color: #fff; }
   .sidenav a[data-dist="1"] { color: rgba(255,255,255,0.6); }
+}
+/* Mobile / tablet: keep the EN/KO switch visible inside the sticky top nav */
+@media (max-width: 959px) {
+  .langbar { top: 9px; right: 12px; }
+  .sitenav { padding-right: 112px; }
 }

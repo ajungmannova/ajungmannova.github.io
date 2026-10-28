@@ -233,6 +233,8 @@
   }
   html[data-lang="ko"] .case-note h3{ font-style:normal; }
   .case-note p{ margin:0; font-size:15px; }
+  .case-note p.case-meta{ font-family:var(--mono); font-size:12.5px; color:var(--ink-soft); margin:-4px 0 12px; }
+  html[data-lang="ko"] .case-note p.case-meta{ font-family:var(--sans-kr); }
 
   /* ---------- Log-style records (education/grades) ---------- */
   .record{

@@ -50,12 +50,81 @@
     padding:0 28px;
   }
 
+  /* ---------- Top bar (mobile-first) ----------
+     Phones/tablets: one sticky row = AJ mark · swipeable sections · EN/KO.
+     Wide screens (>= 960px): only the EN/KO switch remains, fixed top-right;
+     section navigation moves to the rolling side menu. */
+  .topbar{
+    position:sticky;
+    top:0;
+    z-index:50;
+    display:flex;
+    align-items:center;
+    gap:8px;
+    padding:8px max(12px, env(safe-area-inset-right)) 8px max(16px, env(safe-area-inset-left));
+    background:rgba(255,255,255,0.94);
+    -webkit-backdrop-filter:blur(8px);
+    backdrop-filter:blur(8px);
+    border-bottom:1px solid var(--rule);
+  }
+
+  .brand{
+    flex:0 0 auto;
+    width:30px;
+    height:30px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    border:1.5px solid var(--ink);
+    border-radius:4px;
+    color:var(--ink);
+    text-decoration:none;
+    font-family:var(--serif);
+    font-weight:600;
+    font-size:12.5px;
+    letter-spacing:0.3px;
+    transform:rotate(-6deg);
+  }
+  .brand:focus-visible{ outline:2px solid var(--ink); outline-offset:3px; }
+
+  /* single swipeable row; edges fade so it reads as scrollable */
+  .sitenav{
+    flex:1 1 auto;
+    min-width:0;
+    display:flex;
+    gap:2px;
+    overflow-x:auto;
+    overscroll-behavior-x:contain;
+    -webkit-overflow-scrolling:touch;
+    scrollbar-width:none;
+    padding:0 10px;
+    -webkit-mask-image:linear-gradient(to right, transparent 0, #000 12px, #000 calc(100% - 18px), transparent 100%);
+    mask-image:linear-gradient(to right, transparent 0, #000 12px, #000 calc(100% - 18px), transparent 100%);
+  }
+  .sitenav::-webkit-scrollbar{ display:none; }
+  .sitenav a{
+    flex:0 0 auto;
+    font-size:13px;
+    line-height:1.2;
+    color:var(--ink-faint);
+    text-decoration:none;
+    white-space:nowrap;
+    padding:8px 10px;
+    border-radius:999px;
+    transition:color .2s, background .2s;
+  }
+  .sitenav a:hover{ color:var(--ink); }
+  .sitenav a[aria-current="true"]{
+    color:var(--ink);
+    font-weight:500;
+    background:var(--paper-raised);
+    box-shadow:inset 0 0 0 1px var(--rule);
+  }
+  .sitenav a:focus-visible{ outline:2px solid var(--ink); outline-offset:-2px; }
+
   /* ---------- Lang switch ---------- */
   .langbar{
-    position:fixed;
-    top:22px;
-    right:24px;
-    z-index:60; /* above the sticky mobile nav (z-index 50) */
+    flex:0 0 auto;
     display:flex;
     align-items:center;
     gap:2px;
@@ -64,7 +133,7 @@
     background:var(--paper);
     border:1px solid var(--line-strong);
     border-radius:20px;
-    padding:3px;
+    padding:2px;
   }
   .langbar button{
     appearance:none;
@@ -74,7 +143,7 @@
     font-family:var(--mono);
     font-size:12px;
     letter-spacing:0.04em;
-    padding:6px 13px;
+    padding:6px 10px;
     border-radius:16px;
     cursor:pointer;
     transition:background .15s, color .15s;
@@ -88,11 +157,14 @@
 
   /* ---------- Header ---------- */
   header{
-    padding:88px 0 56px;
+    padding:48px 0 44px;
     position:relative;
   }
 
+  /* the big rotated seal only shows on wide screens; on phones/tablets
+     the small AJ mark in the top bar takes its place */
   .seal{
+    display:none;
     position:absolute;
     top:86px;
     right:28px;
@@ -101,7 +173,6 @@
     border:2px solid var(--ink);
     border-radius:6px;
     color:var(--ink);
-    display:flex;
     align-items:center;
     justify-content:center;
     font-family:var(--serif);
@@ -228,7 +299,7 @@
     flex-wrap:wrap;
     gap:10px;
   }
-  .foci span{
+  .foci > span{
     font-family:var(--mono);
     font-size:13px;
     color:var(--ink);
@@ -237,7 +308,7 @@
     border-radius:3px;
     padding:6px 12px;
   }
-  html[data-lang="ko"] .foci span{ font-family:var(--sans-kr); font-size:13.5px; }
+  html[data-lang="ko"] .foci > span{ font-family:var(--sans-kr); font-size:13.5px; }
 
   /* ---------- Case-note (thesis) block ---------- */
   .case-note{
@@ -361,6 +432,9 @@
     border-top:1px dashed var(--rule);
   }
   .subhead:first-of-type{ border-top:none; padding-top:0; margin-top:0; }
+  /* no dashed rule where a sub-heading already follows a heading, a record line or the thesis box */
+  .eyebrow + .subhead{ border-top:none; padding-top:0; margin-top:0; }
+  .record + .subhead, .case-note + .subhead{ border-top:none; padding-top:0; margin-top:30px; }
   html[data-lang="ko"] .subhead{ font-family:var(--sans-kr); letter-spacing:0.02em; text-transform:none; }
 
   /* ---------- Skills ---------- */
@@ -397,114 +471,84 @@
   footer a{ color:var(--ink-faint); }
 
   @media (max-width:560px){
-    header{ padding:64px 0 40px; }
+    .wrap{ padding:0 20px; }
+    header{ padding:36px 0 36px; }
+    .kicker{ font-size:11.5px; letter-spacing:0.08em; }
     h1{ font-size:34px; }
-    .seal{ top:64px; right:24px; width:52px; height:52px; font-size:16px; }
-    .kicker{ padding-right:70px; } /* keep text clear of the AJ seal */
-    .skills-grid{ grid-template-columns:1fr; }
-    .skills-grid dt{ padding-top:8px; }
-    .langbar{ top:16px; right:16px; }
+    .role{ font-size:18px; }
+    section{ padding:36px 0; }
+    .case-note{ padding:16px 16px 16px 18px; }
+    .skills-grid{ grid-template-columns:1fr; gap:4px 0; }
+    .skills-grid dt{ padding-top:12px; }
   }
 
-/* Navigation — self-contained so it doesn't depend on style.css */
-html { scroll-behavior: smooth; }
-section[id] { scroll-margin-top: 64px; }
+section[id]{ scroll-margin-top:64px; }
 
-/* Mobile-first default: compact sticky top bar */
-.sitenav {
-  position: sticky;
-  top: 0;
-  z-index: 50;
-  display: flex;
-  flex-wrap: wrap;
-  gap: 4px 2px;
-  justify-content: flex-start;
-  padding: 10px 12px;
-  background: rgba(255,255,255,0.92);
-  backdrop-filter: blur(6px);
-  border-bottom: 1px solid rgba(0,0,0,0.08);
-  overflow-x: auto;
-  -webkit-overflow-scrolling: touch;
-}
-.sitenav a {
-  flex: 0 0 auto;
-  font-size: 0.82rem;
-  letter-spacing: 0.02em;
-  text-decoration: none;
-  color: inherit;
-  opacity: 0.65;
-  padding: 6px 10px;
-  border-radius: 999px;
-  white-space: nowrap;
-  transition: opacity 0.15s ease, background 0.15s ease;
-}
-.sitenav a:hover { opacity: 1; background: rgba(0,0,0,0.06); }
+/* ---------- Wide screens (>= 960px) ----------
+   Top bar collapses to just the EN/KO switch (fixed, top-right);
+   sections are reached from the rolling side menu; the seal returns. */
+.sidenav{ display:none; }
 
-/* Rolling side navigator — desktop / wide viewports only */
-.sidenav {
-  display: none;
-}
+@media (min-width:960px){
+  header{ padding:88px 0 56px; }
+  .seal{ display:flex; }
 
-@media (min-width: 960px) {
-  /* Hand navigation off to the side nav once there's room for it */
-  .sitenav { display: none; }
+  .topbar{
+    position:fixed;
+    top:22px;
+    right:24px;
+    z-index:60;
+    padding:0;
+    background:none;
+    -webkit-backdrop-filter:none;
+    backdrop-filter:none;
+    border:0;
+  }
+  .brand, .sitenav{ display:none; }
+  .langbar{ padding:3px; }
+  .langbar button{ padding:6px 13px; }
 
-  .sidenav {
-    display: flex;
-    flex-direction: column;
-    gap: 14px;
-    position: fixed;
-    top: 50%;
-    right: 28px;
-    transform: translateY(-50%);
-    z-index: 50;
-    max-width: 160px;
+  .sidenav{
+    display:flex;
+    flex-direction:column;
+    gap:14px;
+    position:fixed;
+    top:50%;
+    right:28px;
+    transform:translateY(-50%);
+    z-index:50;
+    max-width:160px;
   }
-  .sidenav a {
-    position: relative;
-    padding-left: 16px;
-    font-size: 13px;
-    line-height: 1.3;
-    text-decoration: none;
-    color: rgba(0,0,0,0.32);
-    font-weight: 400;
-    white-space: nowrap;
-    transition: color 0.25s ease, font-weight 0.25s ease, opacity 0.25s ease;
+  .sidenav a{
+    position:relative;
+    padding-left:16px;
+    font-size:13px;
+    line-height:1.3;
+    text-decoration:none;
+    color:rgba(0,0,0,0.32);
+    font-weight:400;
+    white-space:nowrap;
+    transition:color .25s ease, opacity .25s ease;
   }
-  .sidenav a::before {
-    content: "";
-    position: absolute;
-    left: 0;
-    top: 0.55em;
-    width: 8px;
-    height: 1px;
-    background: currentColor;
-    opacity: 0.5;
-    transition: width 0.25s ease;
+  .sidenav a::before{
+    content:"";
+    position:absolute;
+    left:0;
+    top:0.55em;
+    width:8px;
+    height:1px;
+    background:currentColor;
+    opacity:0.5;
+    transition:width .25s ease;
   }
-  .sidenav a[data-dist="0"] {
-    color: #111;
-    font-weight: 500;
-    opacity: 1;
-  }
-  .sidenav a[data-dist="0"]::before { width: 16px; opacity: 1; }
-  .sidenav a[data-dist="1"] { color: rgba(0,0,0,0.55); opacity: 0.9; }
-  .sidenav a[data-dist="2"] { opacity: 0.55; }
+  .sidenav a[data-dist="0"]{ color:var(--ink); font-weight:500; opacity:1; }
+  .sidenav a[data-dist="0"]::before{ width:16px; opacity:1; }
+  .sidenav a[data-dist="1"]{ color:rgba(0,0,0,0.55); opacity:0.9; }
+  .sidenav a[data-dist="2"]{ opacity:0.55; }
   .sidenav a[data-dist="3"],
   .sidenav a[data-dist="4"],
   .sidenav a[data-dist="5"],
   .sidenav a[data-dist="6"],
-  .sidenav a[data-dist="7"] { opacity: 0.35; }
-  .sidenav a:hover { color: #111; opacity: 1; }
-}
-
-@media (min-width: 960px) and (prefers-color-scheme: dark) {
-  .sidenav a { color: rgba(255,255,255,0.35); }
-  .sidenav a[data-dist="0"] { color: #fff; }
-  .sidenav a[data-dist="1"] { color: rgba(255,255,255,0.6); }
-}
-/* Mobile / tablet: keep the EN/KO switch visible inside the sticky top nav */
-@media (max-width: 959px) {
-  .langbar { top: 9px; right: 12px; }
-  .sitenav { padding-right: 112px; }
+  .sidenav a[data-dist="7"]{ opacity:0.35; }
+  .sidenav a:hover{ color:var(--ink); opacity:1; }
 }
